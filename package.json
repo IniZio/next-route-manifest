@@ -1,0 +1,56 @@
+{
+  "name": "next-route-manifest",
+  "description": "Generate route manifest for Next.js",
+  "version": "0.1.1",
+  "bin": {
+    "next-route-manifest": "./bin/run"
+  },
+  "dependencies": {
+    "@blitzjs/next": "^11.1.0-0.41.2-canary.4",
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "blitz": "^0.41.1",
+    "cli-ux": "^5.6.3",
+    "ncp": "^2.0.0",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
+    "@types/chai": "^4",
+    "@types/mocha": "^5",
+    "@types/ncp": "^2.0.5",
+    "@types/node": "^10",
+    "chai": "^4",
+    "eslint": "^5.13",
+    "eslint-config-oclif": "^3.1",
+    "eslint-config-oclif-typescript": "^0.1",
+    "mocha": "^5",
+    "nyc": "^14",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "keywords": [
+    "nextjs"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "bin": "next-route-manifest"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .ts --config .eslintrc",
+    "posttest": "npm run lint",
+    "build": "rm -rf lib && tsc -b && oclif-dev readme",
+    "prepublish": "npm run build",
+    "watch": "tsc -w",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
