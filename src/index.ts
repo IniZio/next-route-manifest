@@ -26,6 +26,8 @@ class GenerateRouteManifest extends Command {
 
     const input = fs.existsSync(path.resolve(flags.input, 'src')) ? path.resolve(flags.input, 'src') : flags.input
 
+    process.env.BLITZ_APP_DIR = input;
+
     const config = loadConfigProduction(input)
     await saveRouteManifest(input, config)
 
