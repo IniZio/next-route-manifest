@@ -1,7 +1,7 @@
 {
   "name": "next-route-manifest",
   "description": "Generate route manifest for Next.js",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "bin": {
     "next-route-manifest": "./bin/run"
   },
@@ -13,6 +13,7 @@
     "blitz": "^0.41.1",
     "cli-ux": "^5.6.3",
     "ncp": "^2.0.0",
+    "replace-in-file": "^6.3.2",
     "tslib": "^1"
   },
   "devDependencies": {

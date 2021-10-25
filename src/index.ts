@@ -6,6 +6,7 @@ import * as path from 'path'
 import * as ncp from 'ncp'
 import {loadConfigProduction} from '@blitzjs/next/dist/server/config-shared.js'
 import {saveRouteManifest} from '@blitzjs/next/dist/build/routes.js'
+import {replaceInFile} from 'replace-in-file'
 
 class GenerateRouteManifest extends Command {
   static description = 'Generates route manifest for Nextjs'
@@ -26,14 +27,22 @@ class GenerateRouteManifest extends Command {
 
     const input = fs.existsSync(path.resolve(flags.input, 'src')) ? path.resolve(flags.input, 'src') : flags.input
 
-    process.env.BLITZ_APP_DIR = input;
+    process.env.BLITZ_APP_DIR = input
 
     const config = loadConfigProduction(input)
     await saveRouteManifest(input, config)
 
+    const cacheOutputDir = path.resolve(process.cwd(), 'node_modules/.blitz')
+
+    await replaceInFile({
+      files: path.resolve(cacheOutputDir, 'index.d.ts'),
+      from: 'from "blitz"',
+      to: 'from "next/types"',
+    })
+
     await new Promise<void>((resolve, reject) => {
       ncp(
-        path.resolve(process.cwd(), 'node_modules/.blitz'),
+        cacheOutputDir,
         path.resolve(process.cwd(), flags.output),
         error => error ? reject(error) : resolve()
       )
