@@ -1,5 +1,7 @@
 # next-route-manifest
 
+[![npm](https://img.shields.io/npm/v/next-route-manifest)](https://npm.im/next-route-manifest)
+
 Generates route manifest for Nextjs
 
 ## Usage
