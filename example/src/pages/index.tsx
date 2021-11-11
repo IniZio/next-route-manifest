@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { Routes } from ".blitz"
+import { Routes } from "./generated"
 
 export default function Home() {
   return (
