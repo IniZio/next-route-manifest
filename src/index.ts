@@ -29,7 +29,7 @@ class GenerateRouteManifest extends Command {
 
     let config: NextConfigWithPageExtensionsOnly = defaultConfig
     try {
-      config = require(path.resolve(input, 'next.config.js'))
+      config = require(path.resolve(flags.input, 'next.config.js'))
     } catch {
       this.warn('next.config.js file not found. Using default value')
     }
