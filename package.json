@@ -1,7 +1,7 @@
 {
   "name": "next-route-manifest",
   "description": "Generate route manifest for Next.js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "bin": {
     "next-route-manifest": "./bin/run"
   },
