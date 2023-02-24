@@ -1,5 +1,7 @@
 # next-route-manifest
 
+> Not actively using so haven't updated to support `app` dir
+
 [![npm](https://img.shields.io/npm/v/next-route-manifest)](https://npm.im/next-route-manifest)
 
 Generates route manifest for Nextjs
